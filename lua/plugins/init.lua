@@ -24,6 +24,11 @@ return {
   },
 
   {
+    "RRethy/vim-illuminate",
+    enabled = false,
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
@@ -52,7 +57,7 @@ return {
   },
 
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     opts = function(_, opts)
       if type(opts.sources) == "table" then
         local nls = require("null-ls")
