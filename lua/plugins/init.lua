@@ -29,6 +29,11 @@ return {
   },
 
   {
+    "nvim-treesitter/nvim-treesitter-context",
+    enabled = false,
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
@@ -41,6 +46,16 @@ return {
         "vim",
         "vimdoc",
         "yaml",
+        "nix",
+        "regex",
+      },
+    },
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        nixd = {},
       },
     },
   },
@@ -57,16 +72,23 @@ return {
   },
 
   {
-    "nvimtools/none-ls.nvim",
-    opts = function(_, opts)
-      if type(opts.sources) == "table" then
-        local nls = require("null-ls")
-        vim.list_extend(opts.sources, {
-          nls.builtins.formatting.black,
-          nls.builtins.formatting.clang_format,
-          nls.builtins.diagnostics.mypy,
-        })
-      end
-    end,
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        python = { "black" },
+        c = { "clang_format" },
+        cpp = { "clang_format" },
+        nix = { "nixpkgs-fmt" },
+      },
+    },
+  },
+
+  {
+    "mfussenegger/nvim-lint",
+    opts = {
+      linters_by_ft = {
+        python = { "mypy" },
+      },
+    },
   },
 }
