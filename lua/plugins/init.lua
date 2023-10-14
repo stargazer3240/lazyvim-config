@@ -43,15 +43,6 @@ return {
   },
 
   {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        nixd = {},
-      },
-    },
-  },
-
-  {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
@@ -69,7 +60,7 @@ return {
         python = { "black" },
         c = { "clang_format" },
         cpp = { "clang_format" },
-        nix = { "nixpkgs-fmt" },
+        nix = { "alejandra" },
       },
     },
   },
