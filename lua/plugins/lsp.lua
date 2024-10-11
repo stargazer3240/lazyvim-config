@@ -17,6 +17,9 @@ return {
         cssls = {},
         html = {},
       },
+      inlay_hints = {
+        enabled = false,
+      },
     },
   },
 }
